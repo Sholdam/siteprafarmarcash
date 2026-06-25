@@ -19,9 +19,6 @@ export function Header() {
           <Link className="hover:text-emerald-700" href="/qr-code-link">
             QR Link
           </Link>
-          <Link className="hover:text-emerald-700" href="/converter">
-            Conversor
-          </Link>
           <Link className="hover:text-emerald-700" href="/calculadora-margem">
             Margem
           </Link>

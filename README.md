@@ -2,13 +2,12 @@
 
 Ferramentas rapidas, simples e uteis.
 
-Utilia e um MVP de site low-cost com ferramentas online simples, pensado para SEO, trafego organico e monetizacao futura com anuncios discretos. O nome do repositorio nao e usado como marca publica.
+Utilia e um MVP de site low-cost com ferramentas online simples, pensado para SEO, trafego organico e monetizacao com anuncios discretos. O nome do repositorio nao e usado como marca publica.
 
 ## Ferramentas do MVP
 
 - QR Code para WhatsApp com telefone, mensagem opcional, link copiavel e download em PNG.
 - QR Code para links com validacao simples, preview, copia e download em PNG.
-- Conversor simples com texto para PDF, texto para DOCX e imagens PNG/JPG para PDF.
 - Calculadora de margem e preco de venda para pequenos negocios.
 
 ## Como rodar localmente
@@ -41,7 +40,7 @@ Nenhum secret real deve ser versionado. Use variaveis de ambiente do Railway qua
 
 ## Anuncios
 
-O MVP nao integra AdSense real. A estrutura esta pronta com componentes reutilizaveis:
+O MVP esta preparado para AdSense real por variaveis de ambiente, mas mantem placeholders discretos quando os dados oficiais ainda nao estiverem configurados.
 
 - `AdSlot`
 - `AdRail`
@@ -49,32 +48,38 @@ O MVP nao integra AdSense real. A estrutura esta pronta com componentes reutiliz
 - `AdPlaceholder`
 - `MonetizedLayout`
 
-Hoje os componentes mostram placeholders discretos. Para preparar o ambiente:
+Para preparar o ambiente:
 
 ```env
 NEXT_PUBLIC_ADSENSE_CLIENT=
+NEXT_PUBLIC_ADSENSE_SLOT_RAIL=
+NEXT_PUBLIC_ADSENSE_SLOT_BANNER=
 NEXT_PUBLIC_ENABLE_ADS=false
+NEXT_PUBLIC_SITE_URL=https://siteprafarmarcash-production.up.railway.app
 ```
 
-Quando houver dominio aprovado e codigo oficial, a renderizacao real pode ser adicionada dentro de `AdSlot`. O codigo ja deixa um comentario indicando o ponto futuro de integracao.
+Quando houver conta e site aprovado no AdSense, preencha `NEXT_PUBLIC_ADSENSE_CLIENT` com o ID `ca-pub-...`, adicione os IDs dos slots e mude `NEXT_PUBLIC_ENABLE_ADS=true` no Railway.
+
+O projeto publica `/ads.txt` automaticamente quando `NEXT_PUBLIC_ADSENSE_CLIENT` estiver preenchido. O conteudo segue o formato:
+
+```txt
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+```
 
 ## Limitacoes atuais
 
 - Nao ha login, banco de dados ou painel administrativo.
 - Arquivos nao sao salvos permanentemente.
-- PDF para texto aparece como recurso em breve.
 - Nao ha OCR.
-- Nao ha promessa de conversao perfeita ou PDF para Word avancado.
-- As conversoes do MVP sao simples e leves para manter estabilidade.
+- O Conversor foi removido do MVP para manter foco em ferramentas mais simples e monetizaveis.
 
 ## Proximos passos sugeridos
 
 - Configurar dominio publico.
 - Adicionar Search Console e analytics.
-- Integrar AdSense apenas depois da aprovacao.
+- Ativar AdSense depois da aprovacao do site.
 - Criar novas ferramentas a partir de buscas long tail.
 - Adicionar sugestao de nova ferramenta.
-- Melhorar PDF para texto com biblioteca leve, se ficar estavel.
 
 ## Assinatura
 

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const routes = ["", "/qr-code-whatsapp", "/qr-code-link", "/converter", "/calculadora-margem"];
+const routes = ["", "/qr-code-whatsapp", "/qr-code-link", "/calculadora-margem"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl =

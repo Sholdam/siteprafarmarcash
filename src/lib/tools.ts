@@ -12,12 +12,6 @@ export const tools = [
     cta: "Gerar QR Code",
   },
   {
-    title: "Conversor simples",
-    description: "Converta texto em PDF, texto em Word e imagens em PDF.",
-    href: "/converter",
-    cta: "Converter arquivo",
-  },
-  {
     title: "Calculadora de margem",
     description: "Calcule preco de venda, lucro, custos e margem estimada.",
     href: "/calculadora-margem",

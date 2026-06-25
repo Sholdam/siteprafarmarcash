@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { AdsenseUnit } from "@/components/adsense-unit";
 
 export type AdSlotVariant =
   | "rail-left"
@@ -23,6 +24,14 @@ const sizes: Record<AdSlotVariant, string> = {
   "mobile-inline": "min-h-20 w-full",
 };
 
+function getAdSlotId(variant: AdSlotVariant) {
+  if (variant === "rail-left" || variant === "rail-right") {
+    return process.env.NEXT_PUBLIC_ADSENSE_SLOT_RAIL;
+  }
+
+  return process.env.NEXT_PUBLIC_ADSENSE_SLOT_BANNER;
+}
+
 export function AdPlaceholder({ className }: { className?: string }) {
   return (
     <div
@@ -41,20 +50,20 @@ export function AdPlaceholder({ className }: { className?: string }) {
 
 export function AdSlot({ variant, label, className }: AdSlotProps) {
   const adsEnabled = process.env.NEXT_PUBLIC_ENABLE_ADS === "true";
+  const adClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const adSlot = getAdSlotId(variant);
+  const canRenderAd = adsEnabled && adClient && adSlot;
 
   return (
     <aside
       aria-label={label ?? "Publicidade"}
       className={cn("overflow-hidden", sizes[variant], className)}
     >
-      {adsEnabled ? (
-        <AdPlaceholder />
+      {canRenderAd ? (
+        <AdsenseUnit client={adClient} slot={adSlot} />
       ) : (
         <AdPlaceholder />
       )}
-      {/* Futuro:
-        <ins className="adsbygoogle" ... />
-      */}
     </aside>
   );
 }

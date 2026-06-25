@@ -18,7 +18,7 @@ export default function Home() {
               Ferramentas rapidas, simples e uteis.
             </p>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-              Crie QR Codes, converta arquivos simples e use calculadoras praticas em poucos segundos.
+              Crie QR Codes e use calculadoras praticas em poucos segundos.
             </p>
             <a
               href="#ferramentas"
@@ -42,7 +42,7 @@ export default function Home() {
         <section className="mt-10 rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
           <h2 className="text-2xl font-bold text-slate-950">Um site pequeno para tarefas rapidas</h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-slate-600">
-            O Utilia reune ferramentas simples para resolver necessidades comuns sem login, sem banco de dados e sem complicacao. A primeira versao foca em QR Codes, conversoes leves e calculos comerciais uteis para pequenos negocios.
+            O Utilia reune ferramentas simples para resolver necessidades comuns sem login, sem banco de dados e sem complicacao. A primeira versao foca em QR Codes e calculos comerciais uteis para pequenos negocios.
           </p>
         </section>
       </MonetizedLayout>
