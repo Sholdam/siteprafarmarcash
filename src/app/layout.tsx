@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://utilia.app"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ||
+      "https://siteprafarmarcash-production.up.railway.app",
+  ),
   title: "Utilia - Ferramentas rapidas online",
   description:
     "Use ferramentas online gratis para criar QR Code de WhatsApp, gerar QR Code de links, converter arquivos simples e calcular margem de venda.",
