@@ -1,28 +1,59 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight, Calculator, Link2, Menu, MessageCircleMore } from "lucide-react";
+
+const navigation = [
+  { label: "WhatsApp", href: "/qr-code-whatsapp", icon: MessageCircleMore },
+  { label: "QR Link", href: "/qr-code-link", icon: Link2 },
+  { label: "Margem", href: "/calculadora-margem", icon: Calculator },
+];
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="grid size-10 place-items-center rounded-lg bg-emerald-600 text-lg font-black text-white">
+        <Link href="/" className="flex items-center gap-3" aria-label="Utilia - Página inicial">
+          <span className="grid size-10 place-items-center rounded-lg bg-emerald-600 text-lg font-black text-white shadow-sm">
             U
           </span>
           <span className="text-xl font-bold text-slate-950">Utilia</span>
         </Link>
-        <nav className="hidden items-center gap-5 text-sm font-medium text-slate-600 md:flex">
-          <Link className="hover:text-emerald-700" href="/qr-code-whatsapp">
-            WhatsApp
-          </Link>
-          <Link className="hover:text-emerald-700" href="/qr-code-link">
-            QR Link
-          </Link>
-          <Link className="hover:text-emerald-700" href="/calculadora-margem">
-            Margem
-          </Link>
+
+        <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-600 md:flex" aria-label="Navegação principal">
+          {navigation.map((item) => (
+            <Link key={item.href} className="transition hover:text-emerald-700" href={item.href}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
+
+        <div className="flex items-center gap-2">
+          <Link
+            href="/#ferramentas"
+            className="hidden min-h-10 items-center gap-2 rounded-lg bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800 sm:inline-flex"
+          >
+            Começar
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+
+          <details className="relative md:hidden">
+            <summary className="grid size-10 cursor-pointer list-none place-items-center rounded-lg border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50" aria-label="Abrir menu">
+              <Menu className="size-5" aria-hidden="true" />
+            </summary>
+            <nav className="absolute right-0 top-12 w-56 rounded-lg border border-slate-200 bg-white p-2 shadow-xl" aria-label="Navegação móvel">
+              {navigation.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link key={item.href} href={item.href} className="flex items-center gap-3 rounded-md px-3 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-emerald-700">
+                    <Icon className="size-4" aria-hidden="true" />
+                    {item.label}
+                  </Link>
+                );
+              })}
+            </nav>
+          </details>
+        </div>
       </div>
     </header>
   );
@@ -31,9 +62,24 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-4 py-8 text-sm text-slate-600 sm:px-6 lg:px-8">
-        <strong className="text-slate-900">Utilia</strong>
-        <span>Utilia - um produto do ecossistema Pangeia/Famulus.</span>
+      <div className="mx-auto grid max-w-[1440px] gap-8 px-4 py-10 sm:grid-cols-[1fr_auto] sm:px-6 lg:px-8">
+        <div>
+          <Link href="/" className="flex items-center gap-3">
+            <span className="grid size-9 place-items-center rounded-lg bg-emerald-600 font-black text-white">U</span>
+            <strong className="text-lg text-slate-950">Utilia</strong>
+          </Link>
+          <p className="mt-3 text-sm text-slate-600">Ferramentas rápidas, simples e úteis.</p>
+        </div>
+        <nav className="flex flex-wrap content-start gap-x-5 gap-y-3 text-sm font-medium text-slate-600" aria-label="Links do rodapé">
+          {navigation.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:text-emerald-700">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <p className="border-t border-slate-200 pt-6 text-xs leading-5 text-slate-500 sm:col-span-2">
+          Utilia — um produto do ecossistema Pangeia/Famulus.
+        </p>
       </div>
     </footer>
   );

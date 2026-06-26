@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ||
       "https://utilia.up.railway.app",
   ),
-  title: "Utilia - Ferramentas rapidas online",
+  title: "Utilia — Ferramentas online rápidas e grátis",
   description:
-    "Use ferramentas online gratis para criar QR Code de WhatsApp, gerar QR Code de links e calcular margem de venda.",
+    "Use ferramentas online simples para criar QR Code de WhatsApp, gerar QR Code de links e calcular margem de venda.",
   applicationName: "Utilia",
   openGraph: {
-    title: "Utilia - Ferramentas rapidas online",
+    title: "Utilia — Ferramentas online rápidas e grátis",
     description:
-      "Ferramentas rapidas, simples e uteis para tarefas do dia a dia.",
+      "Ferramentas rápidas, simples e úteis para tarefas do dia a dia.",
     siteName: "Utilia",
     locale: "pt_BR",
     type: "website",
