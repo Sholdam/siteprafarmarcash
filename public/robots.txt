@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://utilia.up.railway.app/sitemap.xml
+Sitemap: https://utilia.up.railway.app/sitemap.txt

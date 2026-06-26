@@ -88,6 +88,7 @@ google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
 - Configurar dominio publico.
 - Adicionar o dominio atual no Google Search Console.
 - Enviar `https://utilia.up.railway.app/sitemap.xml` no Search Console.
+- Se o Search Console continuar com erro temporario no XML, enviar `https://utilia.up.railway.app/sitemap.txt`, que tambem e um formato aceito pelo Google.
 - Adicionar Search Console e analytics.
 - Ativar AdSense depois da aprovacao do site.
 - Criar novas ferramentas a partir de buscas long tail.

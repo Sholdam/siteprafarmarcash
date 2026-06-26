@@ -118,14 +118,15 @@ Proximo passo recomendado para monetizacao:
 
 1. Primeiro configurar Google Search Console.
 2. Enviar `https://utilia.up.railway.app/sitemap.xml`.
-3. Conferir `https://utilia.up.railway.app/robots.txt`.
-4. Depois criar ou acessar conta Google AdSense.
-5. Adicionar o dominio Railway ou, idealmente, um dominio proprio.
-6. Aguardar aprovacao.
-7. Criar blocos de anuncio para banner e lateral.
-8. Configurar as variaveis no Railway.
-9. Fazer redeploy.
-10. Conferir `/ads.txt`.
+3. Se o XML continuar dando erro no Search Console, enviar `https://utilia.up.railway.app/sitemap.txt`. O Google aceita sitemap em texto simples com uma URL por linha.
+4. Conferir `https://utilia.up.railway.app/robots.txt`.
+5. Depois criar ou acessar conta Google AdSense.
+6. Adicionar o dominio Railway ou, idealmente, um dominio proprio.
+7. Aguardar aprovacao.
+8. Criar blocos de anuncio para banner e lateral.
+9. Configurar as variaveis no Railway.
+10. Fazer redeploy.
+11. Conferir `/ads.txt`.
 
 Recomendacao: considerar um dominio proprio antes de pedir aprovacao definitiva no AdSense. O dominio `up.railway.app` funciona tecnicamente, mas um dominio proprio tende a ser melhor para marca, SEO e confianca.
 
