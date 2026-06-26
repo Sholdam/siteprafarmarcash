@@ -1,10 +1,19 @@
 import { AdBanner, MonetizedLayout } from "@/components/ads";
+import { ContentBlock, JsonLd, webAppJsonLd } from "@/components/seo";
 import { PageShell, ToolCard } from "@/components/ui";
 import { tools } from "@/lib/tools";
 
 export default function Home() {
   return (
     <PageShell>
+      <JsonLd
+        data={webAppJsonLd({
+          name: "Utilia",
+          description:
+            "Ferramentas online gratis para criar QR Code de WhatsApp, QR Code de links e calcular margem de venda.",
+          url: "https://utilia.up.railway.app/",
+        })}
+      />
       <MonetizedLayout>
         <section className="rounded-lg bg-gradient-to-br from-white via-emerald-50 to-sky-50 px-5 py-12 sm:px-10 sm:py-16">
           <div className="max-w-3xl">
@@ -45,6 +54,21 @@ export default function Home() {
             O Utilia reune ferramentas simples para resolver necessidades comuns sem login, sem banco de dados e sem complicacao. A primeira versao foca em QR Codes e calculos comerciais uteis para pequenos negocios.
           </p>
         </section>
+
+        <ContentBlock title="Para quem o Utilia foi feito">
+          <p>
+            O Utilia foi pensado para pequenos negocios, profissionais autonomos,
+            criadores de conteudo e qualquer pessoa que precise resolver uma
+            tarefa simples sem instalar aplicativo. A ideia e abrir a ferramenta,
+            preencher poucos campos e baixar ou copiar o resultado.
+          </p>
+          <p>
+            As primeiras ferramentas ajudam em divulgacao, atendimento e venda:
+            QR Code para WhatsApp, QR Code para links e calculadora de margem.
+            Novas ferramentas devem seguir a mesma regra: serem leves, diretas e
+            uteis no celular.
+          </p>
+        </ContentBlock>
       </MonetizedLayout>
     </PageShell>
   );
