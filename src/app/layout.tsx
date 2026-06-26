@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ||
-      "https://siteprafarmarcash-production.up.railway.app",
+      "https://utilia.up.railway.app",
   ),
   title: "Utilia - Ferramentas rapidas online",
   description:

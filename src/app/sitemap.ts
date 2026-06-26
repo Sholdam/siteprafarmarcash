@@ -5,7 +5,7 @@ const routes = ["", "/qr-code-whatsapp", "/qr-code-link", "/calculadora-margem"]
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ||
-    "https://siteprafarmarcash-production.up.railway.app";
+    "https://utilia.up.railway.app";
 
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,

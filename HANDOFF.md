@@ -8,7 +8,7 @@ Este documento resume o estado atual do projeto para continuar em outro PC, outr
 - Branch principal: `main`
 - Produto publico: **Utilia**
 - Slogan: `Ferramentas rapidas, simples e uteis.`
-- Deploy Railway: `https://siteprafarmarcash-production.up.railway.app`
+- Deploy Railway: `https://utilia.up.railway.app`
 - Stack: Next.js App Router, TypeScript, Tailwind CSS, React 19, Node 22 no Railway.
 - Fonte de verdade: **GitHub `main`**. A pasta local pode ser apagada ou recriada a partir do GitHub.
 
@@ -79,6 +79,17 @@ Se o log mostrar porta `8080`, o dominio publico precisa apontar para `8080`. Se
 
 O site ja tem estrutura para anuncios, mas o AdSense real ainda depende de conta, aprovacao e slots oficiais.
 
+Fluxo combinado em 2026-06-26:
+
+1. Site funcionando no Railway.
+2. Dominio publico temporario do Railway ativo: `https://utilia.up.railway.app`.
+3. Conectar dominio proprio depois.
+4. Colocar o site no Google Search Console.
+5. Conferir sitemap e robots.
+6. So entao conectar AdSense para revisao.
+
+Nao pular direto para AdSense antes de Search Console/sitemap, porque o site ainda esta no inicio e precisa ganhar sinais basicos de indexacao e confianca.
+
 Componentes envolvidos:
 
 - `src/components/ads.tsx`
@@ -92,7 +103,7 @@ NEXT_PUBLIC_ENABLE_ADS=true
 NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-SEU_ID
 NEXT_PUBLIC_ADSENSE_SLOT_RAIL=ID_DO_SLOT_LATERAL
 NEXT_PUBLIC_ADSENSE_SLOT_BANNER=ID_DO_SLOT_BANNER
-NEXT_PUBLIC_SITE_URL=https://siteprafarmarcash-production.up.railway.app
+NEXT_PUBLIC_SITE_URL=https://utilia.up.railway.app
 ```
 
 Enquanto `NEXT_PUBLIC_ENABLE_ADS` nao for `true`, ou enquanto faltarem client/slots, o site mostra placeholders discretos de publicidade.
@@ -105,13 +116,16 @@ google.com, pub-123, DIRECT, f08c47fec0942fa0
 
 Proximo passo recomendado para monetizacao:
 
-1. Criar ou acessar conta Google AdSense.
-2. Adicionar o dominio Railway ou, idealmente, um dominio proprio.
-3. Aguardar aprovacao.
-4. Criar blocos de anuncio para banner e lateral.
-5. Configurar as variaveis no Railway.
-6. Fazer redeploy.
-7. Conferir `/ads.txt`.
+1. Primeiro configurar Google Search Console.
+2. Enviar `https://utilia.up.railway.app/sitemap.xml`.
+3. Conferir `https://utilia.up.railway.app/robots.txt`.
+4. Depois criar ou acessar conta Google AdSense.
+5. Adicionar o dominio Railway ou, idealmente, um dominio proprio.
+6. Aguardar aprovacao.
+7. Criar blocos de anuncio para banner e lateral.
+8. Configurar as variaveis no Railway.
+9. Fazer redeploy.
+10. Conferir `/ads.txt`.
 
 Recomendacao: considerar um dominio proprio antes de pedir aprovacao definitiva no AdSense. O dominio `up.railway.app` funciona tecnicamente, mas um dominio proprio tende a ser melhor para marca, SEO e confianca.
 

@@ -34,13 +34,23 @@ O projeto usa Next.js com App Router, TypeScript e Tailwind CSS. O comando `next
 2. Use `npm install` como instalacao.
 3. Use `npm run build` como build.
 4. Use `npm run start` como start.
-5. Configure o dominio publico quando estiver pronto.
+5. Dominio publico temporario atual: `https://utilia.up.railway.app`.
+6. Conecte um dominio proprio depois, quando a marca estiver pronta.
 
 Nenhum secret real deve ser versionado. Use variaveis de ambiente do Railway quando necessario.
 
 ## Anuncios
 
 O MVP esta preparado para AdSense real por variaveis de ambiente, mas mantem placeholders discretos quando os dados oficiais ainda nao estiverem configurados.
+
+Fluxo recomendado antes do AdSense:
+
+1. Manter o site funcionando no Railway.
+2. Usar o dominio publico temporario do Railway.
+3. Conectar dominio proprio depois.
+4. Adicionar o site no Google Search Console.
+5. Confirmar `sitemap.xml` e `robots.txt`.
+6. So entao conectar AdSense para revisao.
 
 - `AdSlot`
 - `AdRail`
@@ -55,7 +65,7 @@ NEXT_PUBLIC_ADSENSE_CLIENT=
 NEXT_PUBLIC_ADSENSE_SLOT_RAIL=
 NEXT_PUBLIC_ADSENSE_SLOT_BANNER=
 NEXT_PUBLIC_ENABLE_ADS=false
-NEXT_PUBLIC_SITE_URL=https://siteprafarmarcash-production.up.railway.app
+NEXT_PUBLIC_SITE_URL=https://utilia.up.railway.app
 ```
 
 Quando houver conta e site aprovado no AdSense, preencha `NEXT_PUBLIC_ADSENSE_CLIENT` com o ID `ca-pub-...`, adicione os IDs dos slots e mude `NEXT_PUBLIC_ENABLE_ADS=true` no Railway.
@@ -76,6 +86,8 @@ google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
 ## Proximos passos sugeridos
 
 - Configurar dominio publico.
+- Adicionar o dominio atual no Google Search Console.
+- Enviar `https://utilia.up.railway.app/sitemap.xml` no Search Console.
 - Adicionar Search Console e analytics.
 - Ativar AdSense depois da aprovacao do site.
 - Criar novas ferramentas a partir de buscas long tail.
