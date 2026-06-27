@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Calculator, Link2, Menu, MessageCircleMore } from "lucide-react";
+import { ArrowRight, AudioLines, Calculator, Link2, Menu, MessageCircleMore } from "lucide-react";
 
 const navigation = [
   { label: "WhatsApp", href: "/qr-code-whatsapp", icon: MessageCircleMore },
   { label: "QR Link", href: "/qr-code-link", icon: Link2 },
   { label: "Margem", href: "/calculadora-margem", icon: Calculator },
+  { label: "Conversor", href: "/converter", icon: AudioLines },
 ];
 
 export function Header() {

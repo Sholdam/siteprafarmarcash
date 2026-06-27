@@ -1,6 +1,6 @@
 # Utilia - Handoff do projeto
 
-Atualizado em **26/06/2026** após o redesign da Home, melhorias de SEO e configuração do Google Search Console.
+Atualizado em **27/06/2026** após a criação do conversor de áudio, além do redesign da Home, melhorias de SEO e configuração do Google Search Console.
 
 Este é o documento principal para continuar o projeto em outro computador, outra sessão do Codex ou outro ambiente.
 
@@ -13,7 +13,7 @@ Este é o documento principal para continuar o projeto em outro computador, outr
 - Deploy: Railway, automático a partir da `main`
 - Stack: Next.js 16 App Router, React 19, TypeScript, Tailwind CSS 4 e Node 22
 - Fonte de verdade: **GitHub `main`**
-- Último commit funcional antes deste handoff: `5ac4473` (`Redesign Utilia home`)
+- Base visual da Home: commit `5ac4473` (`Redesign Utilia home`)
 
 A pasta local não é a fonte oficial e pode ser recriada a partir do GitHub. Nunca trocar a marca pública para `siteprafarmarcash`; esse é somente o nome técnico do repositório e do serviço.
 
@@ -26,6 +26,7 @@ Ferramentas ativas:
 - QR Code para WhatsApp: `/qr-code-whatsapp`
 - QR Code para links: `/qr-code-link`
 - Calculadora de margem e preço de venda: `/calculadora-margem`
+- Conversor de áudio: `/converter`
 
 Rotas de apoio:
 
@@ -38,9 +39,33 @@ Rotas de apoio:
 
 ### Conversor
 
-O conversor funcional foi removido do MVP por decisão do dono do projeto. A nova Home mostra um card desabilitado com o texto **Em breve**, sem link e sem rota `/converter`.
+O conversor foi reativado por pedido explícito do dono do projeto em 27/06/2026. A primeira aba ativa é **Áudio**; as abas Imagem e Documento aparecem desabilitadas como possibilidades futuras.
 
-Não criar ou reativar o conversor sem um novo pedido explícito. Se ele for criado futuramente, evitar processamento pesado, armazenamento de arquivos e custos altos de servidor.
+Funcionalidades atuais:
+
+- Entrada: MP3, MP4, OGG, WAV e M4A
+- Saída: MP3, WAV e OGG
+- MP4 é aceito para extração da faixa de áudio
+- Limite por arquivo: 200 MB
+- Processamento local no navegador com `ffmpeg.wasm`
+- O arquivo não é enviado nem armazenado no Railway
+- O motor WebAssembly de aproximadamente 31 MB é carregado somente quando a conversão começa
+- Interface com upload, arrastar e soltar, progresso, cancelamento, reprodução e download
+
+Pacotes envolvidos:
+
+- `@ffmpeg/ffmpeg@0.12.15`
+- `@ffmpeg/util@0.12.2`
+
+O core é carregado sob demanda a partir do jsDelivr na versão `@ffmpeg/core@0.12.10`. A conversão depende de o navegador conseguir acessar esse CDN na primeira utilização.
+
+Validação realizada no Chrome com o build de produção:
+
+- WAV para MP3: aprovado
+- WAV para OGG: aprovado
+- WAV para WAV: aprovado
+
+Evitar mover o processamento para o Railway sem necessidade, pois isso aumentaria custo, uso de disco e complexidade de privacidade.
 
 ## Home e identidade visual
 
@@ -83,7 +108,7 @@ Próximas ações no Search Console:
 
 1. No dia seguinte, inspecionar a Home `https://utilia.up.railway.app/`.
 2. Se estiver disponível, clicar em **Solicitar indexação**.
-3. Repetir para as três páginas de ferramentas, respeitando o limite diário.
+3. Repetir para as quatro páginas de ferramentas, incluindo `/converter`, respeitando o limite diário.
 4. Conferir depois de alguns dias a seção **Indexação > Páginas**.
 5. Testar no Google: `site:utilia.up.railway.app`.
 
@@ -97,7 +122,7 @@ Não existe garantia de aparecer imediatamente para buscas competitivas como “
 - Dados estruturados JSON-LD de `WebApplication` e `FAQPage`
 - Sitemap XML e sitemap em texto
 - Robots apontando para os dois sitemaps
-- Conteúdo voltado para buscas como QR Code de WhatsApp, QR Code de link e calculadora de margem
+- Conteúdo voltado para buscas como QR Code de WhatsApp, QR Code de link, conversor de áudio e calculadora de margem
 
 Commits relacionados:
 
@@ -190,12 +215,14 @@ Ready
 - `src/app/qr-code-whatsapp/page.tsx` - Página SEO do QR para WhatsApp
 - `src/app/qr-code-link/page.tsx` - Página SEO do QR para links
 - `src/app/calculadora-margem/page.tsx` - Página SEO da calculadora
+- `src/app/converter/page.tsx` - Página SEO e abas da seção de conversores
 - `src/components/ui.tsx` - Header, footer e componentes compartilhados
 - `src/components/ads.tsx` - Layout e slots de anúncio
 - `src/components/seo.tsx` - JSON-LD e blocos SEO
 - `src/components/whatsapp-qr-tool.tsx` - Ferramenta de WhatsApp
 - `src/components/link-qr-tool.tsx` - Ferramenta de QR link
 - `src/components/margin-calculator.tsx` - Calculadora
+- `src/components/audio-converter.tsx` - Conversor local de MP3, MP4, OGG, WAV e M4A
 - `src/lib/tools.ts` - Lista base das ferramentas ativas
 - `public/sitemap.xml` - Sitemap XML
 - `public/sitemap.txt` - Sitemap em texto aceito pelo Search Console
@@ -257,9 +284,9 @@ O Railway deve iniciar um novo deploy automaticamente após o push.
 - Manter os anúncios discretos e depois do conteúdo principal.
 - Priorizar ferramentas leves, úteis e indexáveis.
 - Não criar login, banco de dados, pagamentos ou painel administrativo nesta fase.
-- Não armazenar arquivos ou dados dos usuários.
+- Não armazenar arquivos ou dados dos usuários; o conversor deve continuar local no navegador.
 - Não adicionar bibliotecas pesadas sem necessidade.
-- Não reativar o conversor sem pedido explícito.
+- Preservar o carregamento sob demanda do FFmpeg para não pesar a abertura da Home.
 
 ## Próximas ferramentas sugeridas
 
@@ -286,7 +313,7 @@ Evitar por enquanto:
 1. Ler este arquivo inteiro.
 2. Confirmar `git status -sb` e trabalhar sobre `main` atualizada.
 3. Conferir `https://utilia.up.railway.app` antes de editar.
-4. Não desfazer decisões sobre anúncios ou conversor sem pedido explícito.
+4. Não mover o conversor para processamento no servidor sem pedido explícito e análise de custo.
 5. Preservar as funcionalidades existentes.
 6. Rodar `npm run lint` e `npm run build` antes de publicar código.
 7. Fazer commit e push para o GitHub; não deixar a única versão em arquivos locais.
@@ -294,6 +321,6 @@ Evitar por enquanto:
 
 ## Próxima tarefa recomendada
 
-Aguardar a liberação do limite diário do Search Console e solicitar a indexação da Home e das três ferramentas. Enquanto o Google processa o site, a próxima evolução de produto recomendada é criar uma ferramenta leve com busca específica, começando pelo **gerador de link do WhatsApp sem QR Code**.
+Aguardar a liberação do limite diário do Search Console e solicitar a indexação da Home e das quatro ferramentas, incluindo `https://utilia.up.railway.app/converter`. Enquanto o Google processa o site, a próxima evolução de produto recomendada é criar uma ferramenta leve com busca específica, começando pelo **gerador de link do WhatsApp sem QR Code**.
 
 O AdSense deve continuar como etapa posterior, preferencialmente depois dos primeiros sinais de indexação e, se possível, da conexão de um domínio próprio.

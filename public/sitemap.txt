@@ -2,3 +2,4 @@ https://utilia.up.railway.app/
 https://utilia.up.railway.app/qr-code-whatsapp
 https://utilia.up.railway.app/qr-code-link
 https://utilia.up.railway.app/calculadora-margem
+https://utilia.up.railway.app/converter

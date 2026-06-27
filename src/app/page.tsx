@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
+  AudioLines,
   BadgeCheck,
   Calculator,
   Check,
-  Clock3,
   FileOutput,
   Link2,
   MessageCircleMore,
@@ -23,7 +23,7 @@ import { PageShell } from "@/components/ui";
 export const metadata: Metadata = {
   title: "Utilia — Ferramentas online rápidas e grátis",
   description:
-    "Use ferramentas online simples para criar QR Code de WhatsApp, gerar QR Code de links e calcular margem de venda.",
+    "Use ferramentas online simples para criar QR Code de WhatsApp, converter áudio e calcular margem de venda.",
 };
 
 const activeTools = [
@@ -53,6 +53,15 @@ const activeTools = [
     cta: "Calcular margem",
     icon: Calculator,
     tone: "amber",
+  },
+  {
+    title: "Conversor de áudio",
+    description:
+      "Converta MP3, WAV e OGG ou extraia o áudio de um arquivo MP4 diretamente no navegador.",
+    href: "/converter",
+    cta: "Converter áudio",
+    icon: AudioLines,
+    tone: "cyan",
   },
 ];
 
@@ -99,7 +108,7 @@ export default function Home() {
         data={webAppJsonLd({
           name: "Utilia",
           description:
-            "Ferramentas online grátis para criar QR Code de WhatsApp, QR Code de links e calcular margem de venda.",
+            "Ferramentas online grátis para criar QR Code de WhatsApp, converter áudio e calcular margem de venda.",
           url: "https://utilia.up.railway.app/",
         })}
       />
@@ -114,7 +123,7 @@ export default function Home() {
               Ferramentas online simples para resolver tarefas rápidas
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-              Crie QR Codes, gere links personalizados e calcule margens em poucos segundos.
+              Crie QR Codes, converta arquivos de áudio e calcule margens em poucos segundos.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
@@ -146,11 +155,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mx-auto mt-12 grid max-w-3xl grid-cols-3 gap-2 sm:gap-4" aria-hidden="true">
+          <div className="relative mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4" aria-hidden="true">
             {[
               [MessageCircleMore, "WhatsApp", "bg-emerald-600"],
               [Link2, "QR Link", "bg-sky-600"],
               [Calculator, "Margem", "bg-amber-500"],
+              [AudioLines, "Áudio", "bg-cyan-600"],
             ].map(([Icon, label, color]) => (
               <div key={label as string} className="flex min-w-0 items-center justify-center gap-2 rounded-lg border border-white bg-white/90 px-2 py-3 text-xs font-bold text-slate-700 shadow-sm sm:px-4 sm:text-sm">
                 <span className={`grid size-8 shrink-0 place-items-center rounded-md text-white ${color as string}`}>
@@ -182,6 +192,7 @@ export default function Home() {
                 emerald: "bg-emerald-50 text-emerald-700",
                 sky: "bg-sky-50 text-sky-700",
                 amber: "bg-amber-50 text-amber-700",
+                cyan: "bg-cyan-50 text-cyan-700",
               }[tool.tone];
 
               return (
@@ -205,26 +216,6 @@ export default function Home() {
               );
             })}
 
-            <div className="flex min-h-64 flex-col justify-between rounded-lg border border-dashed border-slate-300 bg-slate-50/70 p-6">
-              <span>
-                <span className="grid size-12 place-items-center rounded-lg bg-slate-200 text-slate-600">
-                  <FileOutput className="size-6" aria-hidden="true" />
-                </span>
-                <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <h3 className="text-xl font-bold text-slate-800">Conversor simples</h3>
-                  <span className="rounded-full bg-slate-200 px-3 py-1 text-xs font-bold text-slate-600">
-                    Em breve
-                  </span>
-                </div>
-                <p className="mt-3 text-sm leading-6 text-slate-600">
-                  Uma nova ferramenta para conversões rápidas está sendo preparada para o Utilia.
-                </p>
-              </span>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-500">
-                <Clock3 className="size-4" aria-hidden="true" />
-                Disponível em uma próxima versão
-              </span>
-            </div>
           </div>
         </section>
 
@@ -275,7 +266,7 @@ export default function Home() {
               Ferramentas online para o dia a dia
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              O Utilia reúne ferramentas simples para quem precisa resolver tarefas rápidas sem instalar programas. Você pode gerar QR Code para WhatsApp, transformar links em QR Code e calcular margem de venda diretamente pelo navegador.
+              O Utilia reúne ferramentas simples para quem precisa resolver tarefas rápidas sem instalar programas. Você pode gerar QR Code para WhatsApp, transformar links em QR Code, converter áudio e calcular margem de venda diretamente pelo navegador.
             </p>
           </div>
         </section>
