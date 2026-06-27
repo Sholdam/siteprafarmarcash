@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ),
   title: "Utilia — Ferramentas online rápidas e grátis",
   description:
-    "Use ferramentas online simples para criar QR Code de WhatsApp, converter áudio e calcular margem de venda.",
+    "Use ferramentas online simples para criar QR Code de WhatsApp, converter áudio e imagem e calcular margem de venda.",
   applicationName: "Utilia",
   openGraph: {
     title: "Utilia — Ferramentas online rápidas e grátis",

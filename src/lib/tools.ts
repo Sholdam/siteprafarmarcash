@@ -18,10 +18,10 @@ export const tools = [
     cta: "Calcular margem",
   },
   {
-    title: "Conversor de áudio",
-    description: "Converta MP3, WAV e OGG ou extraia o áudio de um MP4.",
+    title: "Conversor de arquivos",
+    description: "Converta áudios e imagens diretamente no navegador.",
     href: "/converter",
-    cta: "Converter áudio",
+    cta: "Abrir conversor",
   },
 ];
 

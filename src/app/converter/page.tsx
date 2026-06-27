@@ -1,41 +1,50 @@
 import type { Metadata } from "next";
-import { AudioLines, FileText, ImageIcon } from "lucide-react";
 import { AdBanner, MonetizedLayout } from "@/components/ads";
-import { AudioConverter } from "@/components/audio-converter";
+import { ConverterTabs } from "@/components/converter-tabs";
 import { ContentBlock, faqJsonLd, JsonLd, StepList, webAppJsonLd } from "@/components/seo";
 import { FaqSection, PageHeader, PageShell } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Conversor de áudio online grátis - MP3, MP4, OGG e WAV | Utilia",
+  title: "Conversor de áudio e imagem online grátis | Utilia",
   description:
-    "Converta áudio online entre MP3, WAV e OGG ou extraia o áudio de MP4. Grátis, sem cadastro e sem enviar arquivos ao servidor.",
+    "Converta áudio entre MP3, WAV e OGG, extraia áudio de MP4 ou transforme imagens JPG, PNG e WebP gratuitamente no navegador.",
 };
 
 const faq = [
   {
-    question: "Quais formatos o conversor aceita?",
+    question: "Quais formatos de áudio o conversor aceita?",
     answer:
       "Você pode enviar arquivos MP3, MP4, OGG, WAV e M4A. Os formatos disponíveis para download são MP3, WAV e OGG.",
   },
   {
-    question: "É possível converter MP4 para MP3?",
+    question: "Quais formatos de imagem podem ser convertidos?",
     answer:
-      "Sim. Ao enviar um MP4, o Utilia extrai a faixa de áudio e permite baixar o resultado em MP3, WAV ou OGG.",
+      "A aba Imagem aceita JPG, JPEG, PNG e WebP e permite baixar o resultado em JPG, PNG ou WebP.",
   },
   {
-    question: "Meu arquivo é enviado para algum servidor?",
+    question: "É possível converter MP4 para MP3?",
     answer:
-      "Não. A conversão acontece localmente no navegador usando WebAssembly. O arquivo permanece no seu dispositivo.",
+      "Sim. Ao enviar um MP4 na aba Áudio, o Utilia extrai a faixa sonora e permite baixar o resultado em MP3, WAV ou OGG.",
+  },
+  {
+    question: "Posso transformar PNG em JPG ou WebP?",
+    answer:
+      "Sim. Escolha a imagem PNG, selecione JPG ou WebP e ajuste a qualidade antes de converter.",
+  },
+  {
+    question: "Meus arquivos são enviados para algum servidor?",
+    answer:
+      "Não. Tanto o áudio quanto a imagem são processados localmente no navegador e permanecem no seu dispositivo.",
   },
   {
     question: "Qual é o tamanho máximo do arquivo?",
     answer:
-      "O limite atual é 200 MB. Arquivos grandes podem demorar mais, principalmente em celulares com pouca memória.",
+      "O limite é de 200 MB para áudio e 30 MB ou 40 megapixels para imagem. Arquivos grandes podem demorar mais em celulares.",
   },
   {
     question: "Preciso instalar algum programa?",
     answer:
-      "Não. Basta abrir a página em um navegador moderno, escolher o arquivo e iniciar a conversão.",
+      "Não. Basta abrir a página em um navegador moderno, escolher a aba e iniciar a conversão.",
   },
 ];
 
@@ -45,76 +54,38 @@ export default function ConverterPage() {
       <JsonLd data={faqJsonLd(faq)} />
       <JsonLd
         data={webAppJsonLd({
-          name: "Conversor de áudio online",
+          name: "Conversor de áudio e imagem online",
           description:
-            "Conversor gratuito de MP3, MP4, OGG, WAV e M4A executado diretamente no navegador.",
+            "Conversor gratuito de áudio MP3, MP4, OGG, WAV e M4A e de imagens JPG, PNG e WebP executado diretamente no navegador.",
           url: "https://utilia.up.railway.app/converter",
         })}
       />
       <MonetizedLayout>
         <PageHeader
-          title="Conversor de áudio online"
-          description="Converta arquivos de áudio ou extraia o som de um MP4. O processamento acontece no seu navegador, sem cadastro e sem upload para o servidor."
+          title="Conversor de áudio e imagem online"
+          description="Converta arquivos de áudio, extraia o som de um MP4 ou transforme imagens entre JPG, PNG e WebP. Tudo acontece no seu navegador, sem cadastro e sem upload para o servidor."
         />
 
-        <div
-          className="mb-6 grid grid-cols-3 gap-2 rounded-lg border border-slate-200 bg-white p-2 shadow-sm"
-          role="tablist"
-          aria-label="Tipos de conversor"
-        >
-          <button
-            type="button"
-            role="tab"
-            aria-selected="true"
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-slate-950 px-3 py-2 text-sm font-bold text-white"
-          >
-            <AudioLines className="size-4" aria-hidden="true" />
-            Áudio
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected="false"
-            disabled
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-400"
-            title="Em breve"
-          >
-            <ImageIcon className="size-4" aria-hidden="true" />
-            Imagem
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected="false"
-            disabled
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-slate-400"
-            title="Em breve"
-          >
-            <FileText className="size-4" aria-hidden="true" />
-            Documento
-          </button>
-        </div>
-
-        <AudioConverter />
+        <ConverterTabs />
         <AdBanner variant="banner-middle" />
 
-        <ContentBlock title="Como converter um arquivo de áudio">
+        <ContentBlock title="Como converter um arquivo">
           <StepList
             items={[
-              "Escolha ou arraste um arquivo MP3, MP4, OGG, WAV ou M4A.",
-              "Selecione MP3, WAV ou OGG como formato de saída.",
-              "Clique em converter e aguarde o processamento no navegador.",
-              "Ouça o resultado e baixe o novo arquivo.",
+              "Escolha a aba Áudio ou Imagem.",
+              "Selecione ou arraste o arquivo que deseja transformar.",
+              "Defina o formato de saída e, para imagens, ajuste a qualidade.",
+              "Converta, confira o resultado e baixe o novo arquivo.",
             ]}
           />
         </ContentBlock>
 
         <ContentBlock title="Conversão privada no navegador">
           <p>
-            O conversor de áudio do Utilia usa tecnologia WebAssembly para executar o processamento diretamente no seu dispositivo. Isso significa que o arquivo não precisa ser enviado e armazenado em um servidor externo.
+            Os conversores do Utilia executam o processamento diretamente no seu dispositivo. Seus arquivos não precisam ser enviados ou armazenados em um servidor externo.
           </p>
           <p>
-            Arquivos MP4 também são aceitos: o conversor remove a parte de vídeo e gera somente o áudio no formato escolhido. O tempo de processamento depende do tamanho do arquivo e da velocidade do aparelho.
+            A aba Áudio usa WebAssembly para trabalhar com diferentes codecs. A aba Imagem utiliza os recursos nativos do navegador para preservar as dimensões e gerar JPG, PNG ou WebP com rapidez.
           </p>
         </ContentBlock>
 

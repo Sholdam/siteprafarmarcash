@@ -1,6 +1,6 @@
 # Utilia - Handoff do projeto
 
-Atualizado em **27/06/2026** após a criação do conversor de áudio, além do redesign da Home, melhorias de SEO e configuração do Google Search Console.
+Atualizado em **27/06/2026** após a criação dos conversores de áudio e imagem, além do redesign da Home, melhorias de SEO e configuração do Google Search Console.
 
 Este é o documento principal para continuar o projeto em outro computador, outra sessão do Codex ou outro ambiente.
 
@@ -26,7 +26,7 @@ Ferramentas ativas:
 - QR Code para WhatsApp: `/qr-code-whatsapp`
 - QR Code para links: `/qr-code-link`
 - Calculadora de margem e preço de venda: `/calculadora-margem`
-- Conversor de áudio: `/converter`
+- Conversor de áudio e imagem: `/converter`
 
 Rotas de apoio:
 
@@ -39,7 +39,7 @@ Rotas de apoio:
 
 ### Conversor
 
-O conversor foi reativado por pedido explícito do dono do projeto em 27/06/2026. A primeira aba ativa é **Áudio**; as abas Imagem e Documento aparecem desabilitadas como possibilidades futuras.
+O conversor foi reativado por pedido explícito do dono do projeto em 27/06/2026. As abas **Áudio** e **Imagem** estão ativas; Documento continua desabilitada como possibilidade futura.
 
 Funcionalidades atuais:
 
@@ -51,6 +51,16 @@ Funcionalidades atuais:
 - O arquivo não é enviado nem armazenado no Railway
 - O motor WebAssembly de aproximadamente 31 MB é carregado somente quando a conversão começa
 - Interface com upload, arrastar e soltar, progresso, cancelamento, reprodução e download
+
+Funcionalidades da aba Imagem:
+
+- Entrada: JPG, JPEG, PNG e WebP
+- Saída: JPG, PNG e WebP
+- Controle de qualidade para JPG e WebP
+- Preserva as dimensões originais
+- Limite por arquivo: 30 MB e 40 megapixels
+- Prévia do original e do resultado
+- Processamento nativo e local no navegador, sem dependência adicional
 
 Pacotes envolvidos:
 
@@ -64,6 +74,8 @@ Validação realizada no Chrome com o build de produção:
 - WAV para MP3: aprovado
 - WAV para OGG: aprovado
 - WAV para WAV: aprovado
+- PNG para JPG: aprovado após ativação da aba Imagem
+- PNG para WebP: aprovado após ativação da aba Imagem
 
 Evitar mover o processamento para o Railway sem necessidade, pois isso aumentaria custo, uso de disco e complexidade de privacidade.
 
@@ -215,7 +227,7 @@ Ready
 - `src/app/qr-code-whatsapp/page.tsx` - Página SEO do QR para WhatsApp
 - `src/app/qr-code-link/page.tsx` - Página SEO do QR para links
 - `src/app/calculadora-margem/page.tsx` - Página SEO da calculadora
-- `src/app/converter/page.tsx` - Página SEO e abas da seção de conversores
+- `src/app/converter/page.tsx` - Página SEO da seção de conversores
 - `src/components/ui.tsx` - Header, footer e componentes compartilhados
 - `src/components/ads.tsx` - Layout e slots de anúncio
 - `src/components/seo.tsx` - JSON-LD e blocos SEO
@@ -223,6 +235,8 @@ Ready
 - `src/components/link-qr-tool.tsx` - Ferramenta de QR link
 - `src/components/margin-calculator.tsx` - Calculadora
 - `src/components/audio-converter.tsx` - Conversor local de MP3, MP4, OGG, WAV e M4A
+- `src/components/image-converter.tsx` - Conversor local de JPG, PNG e WebP
+- `src/components/converter-tabs.tsx` - Navegação entre Áudio, Imagem e Documento
 - `src/lib/tools.ts` - Lista base das ferramentas ativas
 - `public/sitemap.xml` - Sitemap XML
 - `public/sitemap.txt` - Sitemap em texto aceito pelo Search Console
