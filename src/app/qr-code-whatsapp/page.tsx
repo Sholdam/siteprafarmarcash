@@ -81,6 +81,19 @@ export default function WhatsAppQrPage() {
             contato.
           </p>
         </ContentBlock>
+        <ContentBlock title="Boas praticas antes de divulgar">
+          <p>
+            Confira o DDI, o DDD e o numero completo antes de baixar o arquivo.
+            Abra o QR Code em outro celular e envie uma mensagem de teste para
+            garantir que a conversa correta sera iniciada.
+          </p>
+          <p>
+            Em materiais impressos, mantenha uma area branca ao redor do codigo
+            e evite deixa-lo muito pequeno. Uma mensagem inicial curta, como
+            &quot;Quero saber mais sobre o produto&quot;, facilita o atendimento sem
+            limitar o que o cliente pode perguntar.
+          </p>
+        </ContentBlock>
         <FaqSection items={faq} />
       </MonetizedLayout>
     </PageShell>

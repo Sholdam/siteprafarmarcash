@@ -81,6 +81,20 @@ export default function LinkQrPage() {
             sera preciso gerar um novo QR Code para o novo endereco.
           </p>
         </ContentBlock>
+        <ContentBlock title="Como garantir uma boa leitura do QR Code">
+          <p>
+            Use um link publico e definitivo, comecando por https sempre que
+            possivel. Antes de publicar, teste o codigo com a camera de mais de
+            um aparelho e verifique se a pagina de destino funciona bem no
+            celular.
+          </p>
+          <p>
+            Para impressao, preserve o contraste entre o codigo e o fundo, nao
+            corte a margem branca e escolha um tamanho compativel com a distancia
+            de leitura. Um QR Code em um cartao de visita precisa ser testado no
+            tamanho final, nao apenas na tela do computador.
+          </p>
+        </ContentBlock>
         <FaqSection items={faq} />
       </MonetizedLayout>
     </PageShell>

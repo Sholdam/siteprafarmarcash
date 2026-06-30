@@ -92,6 +92,20 @@ export default function MarginPage() {
             ficar bem menor do que a margem planejada.
           </p>
         </ContentBlock>
+        <ContentBlock title="Como interpretar o resultado">
+          <p>
+            O preco sugerido e uma referencia construida com os valores
+            informados. O lucro bruto estimado mostra o que resta depois dos
+            custos incluidos no calculo, mas ainda pode haver despesas do
+            negocio que nao foram preenchidas, como aluguel, mao de obra e
+            perdas de estoque.
+          </p>
+          <p>
+            Revise os custos com frequencia e simule mais de um cenario. Comparar
+            margens diferentes ajuda a entender quanto uma promocao, uma taxa
+            nova ou um aumento de fornecedor pode afetar o resultado da venda.
+          </p>
+        </ContentBlock>
         <FaqSection items={faq} />
       </MonetizedLayout>
     </PageShell>

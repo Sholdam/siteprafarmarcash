@@ -89,6 +89,22 @@ export default function ConverterPage() {
           </p>
         </ContentBlock>
 
+        <ContentBlock title="Qual formato escolher">
+          <p>
+            MP3 costuma ser a opcao mais compativel para compartilhar audio.
+            WAV preserva mais informacao e gera arquivos maiores, enquanto OGG
+            pode oferecer bom equilibrio entre qualidade e tamanho em sistemas
+            compativeis. Converter um arquivo nao recupera qualidade que ja foi
+            perdida na gravacao original.
+          </p>
+          <p>
+            Para imagens, JPG e indicado para fotografias, PNG para artes com
+            transparencia e WebP para reduzir o tamanho em paginas e envios
+            digitais. Ao transformar uma imagem transparente em JPG, as areas
+            sem fundo precisam receber uma cor solida.
+          </p>
+        </ContentBlock>
+
         <FaqSection items={faq} />
         <AdBanner variant="banner-bottom" />
       </MonetizedLayout>

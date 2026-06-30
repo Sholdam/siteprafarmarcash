@@ -9,6 +9,8 @@ Utilia e um MVP de site low-cost com ferramentas online simples, pensado para SE
 - QR Code para WhatsApp com telefone, mensagem opcional, link copiavel e download em PNG.
 - QR Code para links com validacao simples, preview, copia e download em PNG.
 - Calculadora de margem e preco de venda para pequenos negocios.
+- Conversor de audio e imagem executado localmente no navegador.
+- Paginas institucionais de privacidade, termos, contato e apresentacao do projeto.
 
 ## Como rodar localmente
 
@@ -81,7 +83,7 @@ google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
 - Nao ha login, banco de dados ou painel administrativo.
 - Arquivos nao sao salvos permanentemente.
 - Nao ha OCR.
-- O Conversor foi removido do MVP para manter foco em ferramentas mais simples e monetizaveis.
+- Conversoes muito grandes dependem da memoria e do desempenho do dispositivo do usuario.
 
 ## Proximos passos sugeridos
 

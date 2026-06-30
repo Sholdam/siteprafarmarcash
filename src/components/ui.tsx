@@ -10,6 +10,13 @@ const navigation = [
   { label: "Conversor", href: "/converter", icon: AudioLines },
 ];
 
+const institutionalNavigation = [
+  { label: "Sobre", href: "/sobre" },
+  { label: "Contato", href: "/contato" },
+  { label: "Privacidade", href: "/privacidade" },
+  { label: "Termos de uso", href: "/termos" },
+];
+
 export function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
@@ -73,6 +80,11 @@ export function Footer() {
         </div>
         <nav className="flex flex-wrap content-start gap-x-5 gap-y-3 text-sm font-medium text-slate-600" aria-label="Links do rodapé">
           {navigation.map((item) => (
+            <Link key={item.href} href={item.href} className="hover:text-emerald-700">
+              {item.label}
+            </Link>
+          ))}
+          {institutionalNavigation.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-emerald-700">
               {item.label}
             </Link>
