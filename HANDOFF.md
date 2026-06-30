@@ -1,6 +1,6 @@
 # Utilia - Handoff do projeto
 
-Atualizado em **27/06/2026** após a criação dos conversores de áudio e imagem, além do redesign da Home, melhorias de SEO e configuração do Google Search Console.
+Atualizado em **30/06/2026** após a publicação das páginas institucionais, reforço do conteúdo das ferramentas e envio do site para revisão no Google AdSense.
 
 Este é o documento principal para continuar o projeto em outro computador, outra sessão do Codex ou outro ambiente.
 
@@ -36,6 +36,10 @@ Rotas de apoio:
 - Robots: `/robots.txt`
 - Verificação do Google: `/google75a1152dbd43ecb3.html`
 - Ads.txt dinâmico: `/ads.txt`
+- Sobre o projeto: `/sobre`
+- Contato: `/contato`
+- Política de Privacidade: `/privacidade`
+- Termos de Uso: `/termos`
 
 ### Conversor
 
@@ -89,7 +93,7 @@ O redesign publicado no commit `5ac4473` inclui:
 - CTAs para começar e visualizar as ferramentas
 - Cards com ícones e estados de interação
 - Seções de benefícios, funcionamento e conteúdo SEO
-- Footer com links das ferramentas e assinatura Pangeia/Famulus
+- Footer com links das ferramentas, páginas institucionais e assinatura Pangeia/Famulus
 - Anúncios laterais e banners visualmente mais discretos
 - Biblioteca de ícones `lucide-react`
 
@@ -131,6 +135,8 @@ Não existe garantia de aparecer imediatamente para buscas competitivas como “
 - Metadata específica na Home e nas páginas de ferramentas
 - Um único H1 por página
 - Conteúdo explicativo e perguntas frequentes
+- Conteýo prático adicional em todas as ferramentas: boas práticas para QR Code, interpretação da margem e escolha de formatos no conversor
+- Páginas públicas de Sobre, Contato, Privacidade e Termos de Uso
 - Dados estruturados JSON-LD de `WebApplication` e `FAQPage`
 - Sitemap XML e sitemap em texto
 - Robots apontando para os dois sitemaps
@@ -143,10 +149,23 @@ Commits relacionados:
 - `7aab42a` - Sitemap em texto como fallback
 - `28d9581` - Conteúdo SEO e dados estruturados
 - `5ac4473` - Redesign da Home e metadata atualizada
+- `85dd20f` - Páginas institucionais, conteúdo reforçado e sitemap atualizado
 
 ## Monetização e AdSense
 
-A estrutura de anúncios existe, mas os anúncios reais ainda dependem de uma conta AdSense, aprovação e IDs oficiais.
+Estado em **30/06/2026**:
+
+- Site `utilia.up.railway.app` adicionado ao Google AdSense
+- Propriedade verificada com sucesso
+- Revisão solicitada
+- Status exibido pelo AdSense: **Preparando**
+- CMP do Google selecionada com três opções: **Consentir**, **Não consentir** e **Gerenciar opções**
+- ID do publisher: `ca-pub-5902711766454974`
+- Script do AdSense confirmado no HTML público da Home
+- `/ads.txt` confirmado publicamente com HTTP 200 e o publisher correto
+- IDs de slots de banner e lateral ainda não foram criados; isso deve ser feito depois da aprovação
+
+O site está em análise. Não remover o script, não trocar o publisher e não reenviar a revisão enquanto o status estiver como **Preparando**.
 
 Arquivos principais:
 
@@ -158,29 +177,32 @@ Variáveis esperadas no Railway:
 
 ```env
 NEXT_PUBLIC_ENABLE_ADS=true
-NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-SEU_ID
-NEXT_PUBLIC_ADSENSE_SLOT_RAIL=ID_DO_SLOT_LATERAL
-NEXT_PUBLIC_ADSENSE_SLOT_BANNER=ID_DO_SLOT_BANNER
+NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-5902711766454974
 NEXT_PUBLIC_SITE_URL=https://utilia.up.railway.app
+```
+
+As variáveis abaixo devem permanecer vazias ou ausentes até os blocos serem criados no AdSense depois da aprovação:
+
+```env
+NEXT_PUBLIC_ADSENSE_SLOT_RAIL=
+NEXT_PUBLIC_ADSENSE_SLOT_BANNER=
 ```
 
 Enquanto os anúncios não estiverem totalmente configurados, o site apresenta placeholders discretos. Não usar pop-up, overlay, anúncio fixo ou anúncio dentro dos cards de ferramentas.
 
-Fluxo recomendado:
+Próximos passos do AdSense:
 
-1. Aguardar e acompanhar a indexação no Search Console.
-2. Continuar melhorando conteúdo e adicionando ferramentas úteis.
-3. Considerar comprar e conectar um domínio próprio.
-4. Criar ou acessar a conta AdSense.
-5. Solicitar a revisão do site.
-6. Após aprovação, criar slots de banner e lateral.
-7. Configurar as variáveis oficiais no Railway.
-8. Fazer redeploy e conferir `/ads.txt`.
+1. Aguardar a conclusão da revisão; o Google informa que ela pode levar de alguns dias a algumas semanas.
+2. Conferir periodicamente o card **Sites** no AdSense, sem alterar a integração durante a análise.
+3. Se aprovado, criar um bloco responsivo de banner e, se fizer sentido, um bloco lateral.
+4. Preencher `NEXT_PUBLIC_ADSENSE_SLOT_BANNER` e `NEXT_PUBLIC_ADSENSE_SLOT_RAIL` no Railway.
+5. Fazer redeploy e confirmar a exibição sem cobrir ferramentas, botões ou conteúdo.
+6. Se reprovado, registrar no handoff o motivo exato apresentado pelo Google antes de modificar o site.
 
-O `/ads.txt` é gerado dinamicamente. Com `NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-123`, ele publica:
+O `/ads.txt` é gerado dinamicamente. Com o publisher atual, ele publica:
 
 ```txt
-google.com, pub-123, DIRECT, f08c47fec0942fa0
+google.com, pub-5902711766454974, DIRECT, f08c47fec0942fa0
 ```
 
 Um domínio próprio não é obrigatório para o funcionamento técnico, mas é recomendado para marca, SEO e confiança antes de investir mais na monetização.
@@ -228,6 +250,10 @@ Ready
 - `src/app/qr-code-link/page.tsx` - Página SEO do QR para links
 - `src/app/calculadora-margem/page.tsx` - Página SEO da calculadora
 - `src/app/converter/page.tsx` - Página SEO da seção de conversores
+- `src/app/sobre/page.tsx` - Apresentação e proposta do Utilia
+- `src/app/contato/page.tsx` - Canal público de contato pelo GitHub
+- `src/app/privacidade/page.tsx` - Política de privacidade, cookies e publicidade
+- `src/app/termos/page.tsx` - Condições e limites de uso
 - `src/components/ui.tsx` - Header, footer e componentes compartilhados
 - `src/components/ads.tsx` - Layout e slots de anúncio
 - `src/components/seo.tsx` - JSON-LD e blocos SEO
@@ -335,6 +361,6 @@ Evitar por enquanto:
 
 ## Próxima tarefa recomendada
 
-Aguardar a liberação do limite diário do Search Console e solicitar a indexação da Home e das quatro ferramentas, incluindo `https://utilia.up.railway.app/converter`. Enquanto o Google processa o site, a próxima evolução de produto recomendada é criar uma ferramenta leve com busca específica, começando pelo **gerador de link do WhatsApp sem QR Code**.
+**Prioridade imediata:** aguardar o Google AdSense sair do status **Preparando**. Não criar slots nem alterar a integração antes da decisão. Quando houver resposta, registrar neste documento o status, a data e qualquer motivo informado.
 
-O AdSense deve continuar como etapa posterior, preferencialmente depois dos primeiros sinais de indexação e, se possível, da conexão de um domínio próprio.
+Em paralelo, acompanhar a indexação no Search Console sem reenviar sitemaps repetidamente. Se houver espaço para evolução de produto durante a espera, a próxima ferramenta sugerida continua sendo o **gerador de link do WhatsApp sem QR Code**.
