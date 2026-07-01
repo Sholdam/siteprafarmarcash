@@ -211,7 +211,7 @@ Um domínio próprio não é obrigatório para o funcionamento técnico, mas é 
 
 Em **01/07/2026**, foi criado um fluxo da Web no Google Analytics com o ID de medição `G-81JBTGJ0KM`.
 
-A integração está no layout global e depende desta variável no Railway:
+A integração está no layout global e usa `G-81JBTGJ0KM` como valor padrão. A variável abaixo é opcional e permite substituir o ID em outro ambiente:
 
 ```env
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-81JBTGJ0KM

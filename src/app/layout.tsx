@@ -38,7 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-  const analyticsId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const analyticsId =
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-81JBTGJ0KM";
 
   return (
     <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>

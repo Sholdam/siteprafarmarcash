@@ -71,7 +71,7 @@ NEXT_PUBLIC_SITE_URL=https://utilia.up.railway.app
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ```
 
-Para ativar o Google Analytics, configure `NEXT_PUBLIC_GA_MEASUREMENT_ID` com o ID do fluxo da Web, no formato `G-...`.
+O Google Analytics usa `G-81JBTGJ0KM` como ID padrão do Utilia. A variável `NEXT_PUBLIC_GA_MEASUREMENT_ID` pode substituir esse valor em outro ambiente.
 
 Quando houver conta e site aprovado no AdSense, preencha `NEXT_PUBLIC_ADSENSE_CLIENT` com o ID `ca-pub-...`, adicione os IDs dos slots e mude `NEXT_PUBLIC_ENABLE_ADS=true` no Railway.
 
