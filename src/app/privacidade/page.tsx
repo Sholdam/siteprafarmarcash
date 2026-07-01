@@ -57,6 +57,12 @@ export default function PrivacyPage() {
             personalizados. Voce tambem pode controlar a personalizacao nas
             configuracoes de anuncios da sua Conta Google.
           </p>
+          <p>
+            O site tambem pode utilizar o Google Analytics para medir acessos,
+            paginas visitadas, tipo de dispositivo e interacoes gerais. Esses
+            dados sao apresentados de forma agregada e ajudam a entender quais
+            ferramentas sao mais uteis e onde a experiencia precisa melhorar.
+          </p>
           <a
             className="font-semibold text-emerald-700 hover:text-emerald-800"
             href="https://policies.google.com/technologies/partner-sites?hl=pt-BR"

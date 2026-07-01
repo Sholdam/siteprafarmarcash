@@ -207,6 +207,18 @@ google.com, pub-5902711766454974, DIRECT, f08c47fec0942fa0
 
 Um domínio próprio não é obrigatório para o funcionamento técnico, mas é recomendado para marca, SEO e confiança antes de investir mais na monetização.
 
+## Google Analytics
+
+Em **01/07/2026**, foi criado um fluxo da Web no Google Analytics com o ID de medição `G-81JBTGJ0KM`.
+
+A integração está no layout global e depende desta variável no Railway:
+
+```env
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-81JBTGJ0KM
+```
+
+Depois de adicionar ou alterar a variável, aguardar o redeploy e usar **Testar instalação** no Google Analytics. A Política de Privacidade já informa o uso de medição agregada. Para visitantes do EEE, Reino Unido e Suíça, manter a CMP do Google e o modo de consentimento alinhados antes de usar personalização de anúncios.
+
 ## Railway
 
 Arquivos de deploy:

@@ -68,7 +68,10 @@ NEXT_PUBLIC_ADSENSE_SLOT_RAIL=
 NEXT_PUBLIC_ADSENSE_SLOT_BANNER=
 NEXT_PUBLIC_ENABLE_ADS=false
 NEXT_PUBLIC_SITE_URL=https://utilia.up.railway.app
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
 ```
+
+Para ativar o Google Analytics, configure `NEXT_PUBLIC_GA_MEASUREMENT_ID` com o ID do fluxo da Web, no formato `G-...`.
 
 Quando houver conta e site aprovado no AdSense, preencha `NEXT_PUBLIC_ADSENSE_CLIENT` com o ID `ca-pub-...`, adicione os IDs dos slots e mude `NEXT_PUBLIC_ENABLE_ADS=true` no Railway.
 
@@ -91,7 +94,7 @@ google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
 - Adicionar o dominio atual no Google Search Console.
 - Enviar `https://utilia.up.railway.app/sitemap.xml` no Search Console.
 - Se o Search Console continuar com erro temporario no XML, enviar `https://utilia.up.railway.app/sitemap.txt`, que tambem e um formato aceito pelo Google.
-- Adicionar Search Console e analytics.
+- Acompanhar Search Console e Google Analytics.
 - Ativar AdSense depois da aprovacao do site.
 - Criar novas ferramentas a partir de buscas long tail.
 - Adicionar sugestao de nova ferramenta.
